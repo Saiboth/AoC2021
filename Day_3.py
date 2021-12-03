@@ -10,6 +10,7 @@ def part1(inp):
             gamma += "0"
     epsilon = int(''.join(['1' if i == '0' else '0' for i in gamma]), 2)
     gamma = int(gamma, 2)
+
     return(gamma, epsilon, gamma * epsilon)
 
 part1(input2)
@@ -18,6 +19,7 @@ def part2(inp):
     inp = inp.split()
     oxygen = int(filtr(inp, 0, 1), 2)
     scrubber = int(filtr(inp, 0, 0), 2)
+
     return(oxygen, scrubber, oxygen * scrubber)
         
 def filtr(l, p, x):
@@ -36,7 +38,6 @@ def filtr(l, p, x):
         a = b
         b = temp
     if a >= b:
-
         for line in l:
             if line[p] == str(x):
                 new_l.append(line)
@@ -45,6 +46,7 @@ def filtr(l, p, x):
             if line[p] != str(x):
                 new_l.append(line)
     p += 1
+    
     return filtr(new_l, p, x)
 
 part2(input2)
